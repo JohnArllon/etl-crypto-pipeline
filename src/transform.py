@@ -15,14 +15,19 @@
 
 import pandas as pd
 
+from datetime import datetime
+
 def transform_data(data):
     print("🔄 Transformando dados...")
 
     price = data["bitcoin"]["usd"]
 
     df = pd.DataFrame([{
-        "crypto": "bitcoin",
-        "price_usd": price
+    "crypto": "bitcoin",
+    "price_usd": price,
+    "timestamp": datetime.now()
+
     }])
+    
 
     return df

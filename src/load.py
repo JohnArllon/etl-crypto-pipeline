@@ -4,4 +4,5 @@ def load_data(df):
     print("💾 Carregando dados...")
 
     engine = create_engine("sqlite:///data/crypto.db")
-    df.to_sql("btc_price", engine, if_exists="replace", index=False)
+    # df.to_sql("btc_price", engine, if_exists="replace", index=False) //Apaga tudo, sempre que rodar.
+    df.to_sql("btc_price", engine, if_exists="append", index=False)  ## Correção para não apagar os dados anteriores, mas adicionar novos dados.

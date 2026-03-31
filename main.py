@@ -5,6 +5,13 @@ from src.load import load_data
 
 def run_pipeline():
     data = extract_data()
+
+    if data is None:
+        print("❌ Falha na extração")
+        return
+
+    df = transform_data(data)
+    data = extract_data()
     df = transform_data(data)
     load_data(df)
     print("✅ Pipeline finalizado!")
